@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
 import joblib
 import os
 
@@ -7,8 +8,9 @@ print("Loading dataset for Student ID: 23L-2626...")
 data = pd.read_csv("data/dataset.csv")
 
 # Baseline data handling step (line modified in Part 4)
-processed_data = data.copy()
-
+#processed_data = data.copy()
+processed_data = pd.DataFrame(StandardScaler().fit_transform(data[['feature1', 'feature2']]), columns=['feature1', 'feature2'])
+processed_data['target'] = data['target']
 X = processed_data[['feature1', 'feature2']]
 y = processed_data['target']
 
