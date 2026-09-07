@@ -1,0 +1,12 @@
+```gitignore
+# MLOps Ignored Directories & Artifacts
+data/
+model/
+models/
+venv/
+.venv/
+__pycache__/
+*.pkl
+*.h5
+*.csv
+.DS_Store
